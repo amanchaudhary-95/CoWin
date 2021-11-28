@@ -3,6 +3,13 @@ import requests
 import datetime
 
 center_id = []
+st.set_page_config(
+     page_title="OCR APP",
+     layout="wide",
+     initial_sidebar_state="expanded",
+     menu_items={
+         'About': "## OCR APP\n **Developed by** : Aman Chaudhary"
+     })
 
 def name_generator(names_length):
     names = []
@@ -10,7 +17,7 @@ def name_generator(names_length):
         names.append('key'+str(i))
     return names
 
-@st.cache
+#@st.cache
 def states():
     url = "https://cdn-api.co-vin.in/api/v2/admin/location/states"
     state = requests.get(url=url)
@@ -19,7 +26,7 @@ def states():
         states_dict[state.json()['states'][x]['state_name']] = state.json()['states'][x]['state_id']
     return states_dict
 
-@st.cache
+#@st.cache
 def districts(states_dict, select_state):
     dist_url ="https://cdn-api.co-vin.in/api/v2/admin/location/districts/"
     dist_url= dist_url + str(states_dict[select_state])
@@ -32,7 +39,7 @@ def districts(states_dict, select_state):
         dist_list[result['districts'][x]['district_name']] = result['districts'][x]['district_id']
     return dist_list
 
-@st.cache
+#@st.cache
 def centers(dist_dict, select_dist):
     appoint_url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id="
     appoint_url =  appoint_url + str(dist_dict[select_dist]) + "&date=" + start_date
