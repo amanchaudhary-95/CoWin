@@ -19,10 +19,11 @@ def name_generator(names_length):
         names.append('key'+str(i))
     return names
 
-@st.cache
+#@st.cache
 def states():
     url = "https://cdndemo-api.co-vin.in/api/v2/admin/location/states"
     state = requests.get(url=url)
+     st.write("State =", state)
     temp = state.json()
     st.write(temp)
     states_dict ={}
