@@ -22,7 +22,7 @@ def name_generator(names_length):
 #@st.cache
 def states():
     url = "https://cdndemo-api.co-vin.in/api/v2/admin/location/states"
-    state = requests.get(url=url)
+    state = requests.get('https://cdndemo-api.co-vin.in/api/v2/admin/location/states')
     st.write("State =", state)
     temp = state.json()
     st.write(temp)
