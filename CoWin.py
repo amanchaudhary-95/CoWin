@@ -23,6 +23,7 @@ def name_generator(names_length):
 def states():
     url = "https://cdn-api.co-vin.in/api/v2/admin/location/states"
     state = requests.get(url=url)
+    st.write(state)
     temp = state.json()
     states_dict ={}
     for x in range(len(temp['states'])):
