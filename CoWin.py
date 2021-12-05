@@ -4,7 +4,7 @@ import datetime
 import json
 import os
 
-os.environ["HTTP_PROXY"] = "http:103.159.47.5:82"
+#os.environ["HTTP_PROXY"] = "http:103.159.47.5:82"
 
 center_id = []
 
